@@ -1,1 +1,24 @@
-<p>user-list works!</p>
+<h2 class="tittle">Lista de Usuarios</h2>
+
+<div class="d-grid gap-2 col-6 mx-auto">
+  <a type="button" class="btn btn-outline-dark"
+    href="/register">Registra un Nuevo Usuario</a>
+</div>
+<table class="table table-striped">
+  <thead class="table-dark">
+    <tr>
+      <th>ID</th>
+      <th>Nombre</th>
+      <th>Apellido</th>
+      <th>Email</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let user of user">
+      <td>{{user.id}}</td>
+      <td>{{user.name}}</td>
+      <td>{{user.lastName}}</td>
+      <td>{{user.email}}</td>
+    </tr>
+  </tbody>
+</table>
