@@ -30,7 +30,7 @@ export class RegisterServiceComponent implements OnInit {
   }
 
   onSubmit():void{
-    console.log(this.user)
+    this.saveUser;
   }
 
 }
