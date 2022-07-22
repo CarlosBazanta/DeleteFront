@@ -10,14 +10,15 @@
 
   <div class="col-md-6 offset-md-3">
     <h3 class="text-center">Registro de Usuarios</h3>
-    <form (ngSubmit)="onSubmit()">
+    <form (ngSubmit)="onSubmit()" #f="ngForm">
       <div class="form-group">
         <label  class="control-label">Nombre: </label>
         <input type = "text"
             class="form-control"
             id="name"
+            formControlName="name"
             required
-            [(ngModel)]="user.name"
+            ngModel
             name = "name"
             placeholder="Carlos Ernesto">
       </div>
@@ -25,9 +26,10 @@
         <label >Apellido: </label>
         <input type = "text"
             class="form-control"
+            formControlName="lastName"
             id="lastName"
             required
-            [(ngModel)]="user.lastName"
+            ngModel
             lastName = "lastName"
             placeholder="Gonzalez Bazanta">
       </div>
@@ -36,14 +38,15 @@
         <input type = "email"
              class="form-control"
             id="email"
+            formControlName="email"
             required
-            [(ngModel)]="user.email"
+            ngModel
             email = "email"
             placeholder="example@example.com">
       </div>
 
       <div class="d-grid gap-2 col-6 mx-auto">
-        <button type="button" class="btn btn-outline-dark">
+        <button type="button" class="btn btn-outline-dark" [disabled]="f.invalid">
           Registrar</button>
       </div>
 
