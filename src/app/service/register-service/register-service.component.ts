@@ -48,7 +48,8 @@ export class RegisterServiceComponent implements OnInit {
   }
 
   onSubmit():void{
-    this.saveUser;
+    console.log(this.registerUserFormGroup.value)
+    this.saveUser();
   }
 
   redictToList(){
