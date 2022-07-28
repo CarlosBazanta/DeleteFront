@@ -1,8 +1,8 @@
-<h2 class="tittle">Lista de Usuarios</h2>
+<h2 class="tittle"><i class="bi bi-list-ol"></i> Lista de Usuarios</h2>
 
 <div class="d-grid gap-2 col-6 mx-auto">
   <a type="button" class="btn btn-outline-dark"
-    href="/register">Registra un Nuevo Usuario</a>
+    href="/register"><i class="bi bi-person-plus-fill"></i> Registra un Nuevo Usuario</a>
 </div>
 <table class="table table-striped">
   <thead class="table-dark">
@@ -22,8 +22,8 @@
       <td>{{user.email}}</td>
 
       <td>
-          <button class="btn btn-outline-secondary" (click)="editUser(user.id)">Editar</button>
-          <button class="btn btn-outline-dark" (click)="deleteUser(user.id)">Eliminar</button>
+          <button class="btn btn-outline-secondary" (click)="editUser(user.id)"><i class="bi bi-pencil"></i> Editar</button>
+          <button class="btn btn-outline-dark" (click)="deleteUser(user.id)"><i class="bi bi-person-x-fill"></i> Eliminar</button>
       </td>
 
     </tr>
