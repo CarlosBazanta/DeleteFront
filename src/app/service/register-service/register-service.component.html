@@ -10,40 +10,47 @@
 
   <div class="col-md-6 offset-md-3">
     <h3 class="text-center">Registro de Usuarios</h3>
-    <form (ngSubmit)="onSubmit()">
+
+    <form id="contactForm" [formGroup]="registerUserFormGroup" (ngSubmit)="onSubmit()">
+
       <div class="form-group">
         <label  class="control-label">Nombre: </label>
         <input type = "text"
             class="form-control"
             id="name"
-            required
+            formControlName="name"
             [(ngModel)]="user.name"
+            required
             name = "name"
             placeholder="Carlos Ernesto">
       </div>
+
       <div class="control-label">
         <label >Apellido: </label>
         <input type = "text"
             class="form-control"
+            formControlName="lastName"
+            [(ngModel)]="user.lastName"
             id="lastName"
             required
-            [(ngModel)]="user.lastName"
             lastName = "lastName"
             placeholder="Gonzalez Bazanta">
       </div>
+
       <div class="form-group">
         <label class="control-label">Email: </label>
         <input type = "email"
              class="form-control"
             id="email"
-            required
+            formControlName="email"
             [(ngModel)]="user.email"
+            required
             email = "email"
             placeholder="example@example.com">
       </div>
 
       <div class="d-grid gap-2 col-6 mx-auto">
-        <button type="button" class="btn btn-outline-dark">
+        <button type="submit" class="btn btn-outline-dark">
           Registrar</button>
       </div>
 
