@@ -9,12 +9,12 @@
 <body>
 
   <div class="col-md-6 offset-md-3">
-    <h3 class="text-center">Registro de Usuarios</h3>
+    <h3 class="text-center"><i class="bi bi-people"></i> Registro de Usuarios</h3>
 
     <form id="contactForm" [formGroup]="registerUserFormGroup" (ngSubmit)="onSubmit()">
 
       <div class="form-group">
-        <label  class="control-label">Nombre: </label>
+        <label for="name"  class="form-label">Nombre: </label>
         <input type = "text"
             class="form-control"
             id="name"
@@ -51,7 +51,7 @@
 
       <div class="d-grid gap-2 col-6 mx-auto">
         <button type="submit" class="btn btn-outline-dark">
-          Registrar</button>
+          <i class="bi bi-person-plus"></i> Registrar</button>
       </div>
 
     </form>

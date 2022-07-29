@@ -6,4 +6,13 @@
 }
 .btn-outline-secondary{
   margin-right: 2%;
+  margin-bottom: 2%;
+}
+
+.btn-outline-dark{
+  margin-bottom: 2%;
+}
+
+.tr{
+  text-align: center;
 }

@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { EditUserComponent } from './service/edit-user/edit-user.component';
-import { RegisterServiceComponent } from './service/register-service/register-service.component';
-import { UserListComponent } from './table/user-list/user-list.component';
+import { EditUserComponent } from './core/auth/edit-user/edit-user.component';
+import { RegisterServiceComponent } from './core/auth/register-service/register-service.component';
+import { UserListComponent } from './core/auth/user-list/user-list.component';
 
 const routes: Routes = [
   {path: 'home',component:UserListComponent},
