@@ -23,6 +23,17 @@
             required
             name = "name"
             placeholder="Carlos Ernesto">
+            <div class="supalert" *ngIf="name?.['touched'] || name?.['dirty']">
+              <div class="alert alert-danger" role="alert" *ngIf="name?.hasError('required')">
+                Es necesario completar esta casilla
+              </div>
+              <div class="alert alert-danger" role="alert" *ngIf="name?.hasError('minlength')">
+                Error esta casilla no tiene los caracteres suficientes
+              </div>
+              <div class="alert alert-danger" role="alert" *ngIf="name?.hasError('maxlength')">
+                Error esta casilla tiene demasiados caracteres
+              </div>
+            </div>
       </div>
 
       <div class="control-label">

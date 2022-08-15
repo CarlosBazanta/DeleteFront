@@ -19,12 +19,7 @@ export class RegisterServiceComponent implements OnInit {
 
   ngOnInit(): void {
 
-    this.registerUserFormGroup=this.createFormGroup();
-
-  }
-
-  createFormGroup(){
-    return this.formBuilder.group({
+    this.registerUserFormGroup= this.formBuilder.group({
       name: new FormControl('', [
         Validators.required,
         Validators.minLength(6),
@@ -37,8 +32,13 @@ export class RegisterServiceComponent implements OnInit {
         Validators.required,
         Validators.minLength(6),
         Validators.maxLength(100)]),
-    })
+    });
+
   }
+
+  submitted = false;
+
+  get name() {return this.registerUserFormGroup.get('name')}
 
   saveUser(){
     this.userService.userRegister(this.user).subscribe(dato => {
@@ -48,6 +48,13 @@ export class RegisterServiceComponent implements OnInit {
   }
 
   onSubmit():void{
+
+    this.submitted =true;
+
+    if(this.registerUserFormGroup.invalid){
+      return console.log("error");
+    }
+
     console.log(this.registerUserFormGroup.value)
     this.saveUser();
   }
