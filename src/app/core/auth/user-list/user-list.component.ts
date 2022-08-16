@@ -10,6 +10,7 @@ import { Router } from '@angular/router';
 })
 export class UserListComponent implements OnInit {
 
+  pageSize= 5;
   user:User[]
 
   constructor(private userService:UserServiceService,private router:Router) { }
@@ -34,5 +35,6 @@ export class UserListComponent implements OnInit {
       this.user = dato;
     })
   }
+
 
 }

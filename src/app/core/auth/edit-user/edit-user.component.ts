@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { User } from 'src/app/entity/user';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { UserServiceService } from '../../service/user-service.service';
+import { Constanst } from '../../constanst/constanst.component';
 
 @Component({
   selector: 'app-edit-user',
@@ -42,15 +43,25 @@ export class EditUserComponent implements OnInit {
       email: new FormControl('', [
         Validators.required,
         Validators.minLength(6),
-        Validators.maxLength(100)]),
+        Validators.maxLength(100),
+        Validators.pattern(Constanst.Pattern.Form.email)]),
     })
   }
+
+  get name() {return this.editFormGroup.get('name')}
+  get lastName() {return this.editFormGroup.get('lastName')}
+  get email() {return this.editFormGroup.get('email')}
 
   redictToList(){
     this.router.navigate(['/home'])
   }
 
   onSubmit(){
+
+    if(this.editFormGroup.invalid){
+      return console.log("error");
+    }
+
     this.userService.editUser(this.id,this.user).subscribe(dato => {
       this.redictToList();
     },error => console.log(error));
