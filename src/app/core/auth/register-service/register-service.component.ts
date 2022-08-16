@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { User } from 'src/app/entity/user';
-import { UserServiceService } from '../user-service.service';
+import { Constanst } from '../../constanst/constanst.component';
+import { UserServiceService } from '../../service/user-service.service';
 
 @Component({
   selector: 'app-register-service',
@@ -19,12 +20,7 @@ export class RegisterServiceComponent implements OnInit {
 
   ngOnInit(): void {
 
-    this.registerUserFormGroup=this.createFormGroup();
-
-  }
-
-  createFormGroup(){
-    return this.formBuilder.group({
+    this.registerUserFormGroup= this.formBuilder.group({
       name: new FormControl('', [
         Validators.required,
         Validators.minLength(6),
@@ -36,9 +32,17 @@ export class RegisterServiceComponent implements OnInit {
       email: new FormControl('', [
         Validators.required,
         Validators.minLength(6),
-        Validators.maxLength(100)]),
-    })
+        Validators.maxLength(100),
+        Validators.pattern(Constanst.Pattern.Form.email)]),
+    });
+
   }
+
+  submitted = false;
+
+  get name() {return this.registerUserFormGroup.get('name')}
+  get lastName() {return this.registerUserFormGroup.get('lastName')}
+  get email() {return this.registerUserFormGroup.get('email')}
 
   saveUser(){
     this.userService.userRegister(this.user).subscribe(dato => {
@@ -48,6 +52,13 @@ export class RegisterServiceComponent implements OnInit {
   }
 
   onSubmit():void{
+
+    this.submitted =true;
+
+    if(this.registerUserFormGroup.invalid){
+      return console.log("error");
+    }
+
     console.log(this.registerUserFormGroup.value)
     this.saveUser();
   }

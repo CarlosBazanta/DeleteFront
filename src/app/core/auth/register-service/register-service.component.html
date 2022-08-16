@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Register</title>
+</head>
+<body>
+
+  <div class="col-md-6 offset-md-3">
+    <h3 class="text-center"><i class="bi bi-people"></i> Registro de Usuarios</h3>
+
+    <form id="contactForm" [formGroup]="registerUserFormGroup" (ngSubmit)="onSubmit()">
+
+      <div class="form-group">
+        <label for="name"  class="form-label">Nombre: </label>
+        <input type = "text"
+            class="form-control"
+            id="name"
+            formControlName="name"
+            [(ngModel)]="user.name"
+            required
+            name = "name"
+            placeholder="Carlos Ernesto">
+            <div class="supalert" *ngIf="name?.['touched'] || name?.['dirty']">
+              <div class="alert alert-danger" role="alert" *ngIf="name?.hasError('required')">
+                <i class="bi bi-exclamation-circle-fill"></i> ERROR: Es necesario completar esta casilla
+              </div>
+              <div class="alert alert-danger" role="alert" *ngIf="name?.hasError('minlength')">
+                <i class="bi bi-exclamation-circle-fill"></i> ERROR: Esta casilla no tiene los caracteres suficientes
+              </div>
+              <div class="alert alert-danger" role="alert" *ngIf="name?.hasError('maxlength')">
+                <i class="bi bi-exclamation-circle-fill"></i> ERROR: Esta casilla tiene demasiados caracteres
+              </div>
+            </div>
+      </div>
+
+      <div class="control-label">
+        <label >Apellido: </label>
+        <input type = "text"
+            class="form-control"
+            formControlName="lastName"
+            [(ngModel)]="user.lastName"
+            id="lastName"
+            required
+            lastName = "lastName"
+            placeholder="Gonzalez Bazanta">
+            <div class="supalert" *ngIf="lastName?.['touched'] || lastName?.['dirty']">
+              <div class="alert alert-danger" role="alert" *ngIf="lastName?.hasError('required')">
+                <i class="bi bi-exclamation-circle-fill"></i> ERROR: Es necesario completar esta casilla
+              </div>
+              <div class="alert alert-danger" role="alert" *ngIf="lastName?.hasError('minlength')">
+                <i class="bi bi-exclamation-circle-fill"></i> ERROR: Esta casilla no tiene los caracteres suficientes
+              </div>
+              <div class="alert alert-danger" role="alert" *ngIf="lastName?.hasError('maxlength')">
+                <i class="bi bi-exclamation-circle-fill"></i> ERROR: Esta casilla tiene demasiados caracteres
+              </div>
+            </div>
+      </div>
+
+      <div class="form-group">
+        <label class="control-label">Email: </label>
+        <input type = "email"
+             class="form-control"
+            id="email"
+            formControlName="email"
+            [(ngModel)]="user.email"
+            required
+            email = "email"
+            placeholder="example@example.com">
+            <div class="supalert" *ngIf="email?.['touched'] || email?.['dirty']">
+              <div class="alert alert-danger" role="alert" *ngIf="email?.hasError('required')">
+                <i class="bi bi-exclamation-circle-fill"></i> ERROR: Es necesario completar esta casilla
+              </div>
+              <div class="alert alert-danger" role="alert" *ngIf="email?.hasError('minlength')">
+                <i class="bi bi-exclamation-circle-fill"></i> ERROR: Esta casilla no tiene los caracteres suficientes
+              </div>
+              <div class="alert alert-danger" role="alert" *ngIf="email?.hasError('maxlength')">
+                <i class="bi bi-exclamation-circle-fill"></i> ERROR: Esta casilla tiene demasiados caracteres
+              </div>
+              <div class="alert alert-danger" role="alert" *ngIf="email?.hasError('pattern')">
+                <i class="bi bi-exclamation-circle-fill"></i> ERROR: Esta casilla tiene caracteres invalidos o le falta '@example.com'
+              </div>
+            </div>
+      </div>
+
+      <div class="d-grid gap-2 col-6 mx-auto">
+        <button type="submit" class="btn btn-outline-dark" [disabled]="registerUserFormGroup.invalid">
+          <i class="bi bi-person-plus"></i> Registrar</button>
+      </div>
+
+    </form>
+  </div>
+
+</body>
+</html>
