@@ -86,8 +86,8 @@
       </div>
 
       <div class="d-grid gap-2 col-6 mx-auto">
-        <button type="submit" class="btn btn-outline-dark" [disabled]="editFormGroup.invalid">
-          <i class="bi bi-person-check"></i> Actualizar</button>
+        <button type="submit" class="btn btn-outline-dark" [disabled]="editFormGroup.invalid|| loading=='Cargando...'" (click)="loadingCard()">
+          <i class="bi bi-person-check"></i> {{loading}}</button>
       </div>
 
     </form>

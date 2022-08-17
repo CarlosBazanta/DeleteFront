@@ -15,7 +15,7 @@
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let user of user">
+    <tr *ngFor="let user of user | paginate: {itemsPerPage: 5, currentPage: page}">
       <td>{{user.id}}</td>
       <td>{{user.name}}</td>
       <td>{{user.lastName}}</td>
@@ -28,6 +28,15 @@
 
     </tr>
   </tbody>
+
 </table>
+
+<div class="pagination justify-content-center">
+  <pagination-controls class="pagination pg-teal" (pageChange)="page = $event"></pagination-controls>
+</div>
+
+
+
+
 
 

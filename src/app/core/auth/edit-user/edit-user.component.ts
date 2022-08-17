@@ -15,6 +15,7 @@ export class EditUserComponent implements OnInit {
   id:number;
   user:User= new User();
   editFormGroup: FormGroup;
+  loading: string = 'Actualizar';
 
   constructor(private userService: UserServiceService , private router: Router,
               private route: ActivatedRoute, private formBuilder: FormBuilder ) { }
@@ -65,6 +66,12 @@ export class EditUserComponent implements OnInit {
     this.userService.editUser(this.id,this.user).subscribe(dato => {
       this.redictToList();
     },error => console.log(error));
+  }
+
+  loadingCard(){
+
+    this.loading ='Cargando...' ;
+
   }
 
 }

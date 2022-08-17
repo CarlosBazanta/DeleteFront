@@ -86,8 +86,8 @@
       </div>
 
       <div class="d-grid gap-2 col-6 mx-auto">
-        <button type="submit" class="btn btn-outline-dark" [disabled]="registerUserFormGroup.invalid">
-          <i class="bi bi-person-plus"></i> Registrar</button>
+        <button type="submit" class="btn btn-outline-dark" [disabled]="registerUserFormGroup.invalid || loading=='Cargando...'" (click)="loadingCard()">
+          <i class="bi bi-person-plus"></i> {{loading}}</button>
       </div>
 
     </form>

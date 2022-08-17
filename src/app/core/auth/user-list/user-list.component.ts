@@ -11,7 +11,9 @@ import { Router } from '@angular/router';
 export class UserListComponent implements OnInit {
 
   pageSize= 5;
-  user:User[]
+  user:User[];
+  page: number = 1;
+
 
   constructor(private userService:UserServiceService,private router:Router) { }
 

@@ -14,6 +14,8 @@ export class RegisterServiceComponent implements OnInit {
 
   registerUserFormGroup: FormGroup;
   user: User = new User();
+  loading: string = 'Registrar';
+
 
   constructor(private formBuilder: FormBuilder,private router:Router,
     private userService : UserServiceService ) { }
@@ -65,6 +67,12 @@ export class RegisterServiceComponent implements OnInit {
 
   redictToList(){
     this.router.navigate(['/home'])
+  }
+
+  loadingCard(){
+
+    this.loading ='Cargando...' ;
+
   }
 
 
