@@ -7,12 +7,20 @@
   <title>Home</title>
 </head>
 <body>
-  <nav class="navbar navbar-dark bg-dark">
+  <nav class="navbar navbar-dark bg-dark" *ngIf="load">
     <div class="navbar-header">
         <a class="navbar-brand" href="/home"><i class="bi bi-house-door"></i> Home</a>
     </div>
 </nav>
-  <div class="container">
+
+<div class="loading" *ngIf="!load">
+  <div class="spinner-border" role="status">
+  </div>
+  <br>
+  <span>{{loading}}</span>
+</div>
+
+  <div class="container" *ngIf="load">
     <router-outlet></router-outlet>
   </div>
 
