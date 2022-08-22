@@ -70,7 +70,13 @@ export class EditUserComponent implements OnInit {
 
   loadingCard(){
 
-    this.loading ='Cargando...' ;
+    if(this.loading=='Cargando...'){
+
+      this.loading ='Actualizar' ;
+
+    }else{
+      this.loading ='Cargando...' ;
+    }
 
   }
 
