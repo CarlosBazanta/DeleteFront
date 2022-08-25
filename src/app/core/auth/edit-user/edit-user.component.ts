@@ -16,11 +16,16 @@ export class EditUserComponent implements OnInit {
   user:User= new User();
   editFormGroup: FormGroup;
   loading: string = 'Actualizar';
+  Loading: string = 'Cargando';
+  load: Boolean= false;
 
   constructor(private userService: UserServiceService , private router: Router,
               private route: ActivatedRoute, private formBuilder: FormBuilder ) { }
 
   ngOnInit(): void {
+
+    this.changeLoad();
+    setTimeout(()=>{this.load=true;},2000);
 
     this.editFormGroup=this.createFormGroup();
 
@@ -80,4 +85,9 @@ export class EditUserComponent implements OnInit {
 
   }
 
+  changeLoad(){
+      setInterval(()=>{this.Loading += '.';
+      if(this.Loading==='Cargando....')
+      {this.Loading='Cargando.';}},500)
+  }
 }

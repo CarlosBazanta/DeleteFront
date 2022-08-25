@@ -8,7 +8,14 @@
 </head>
 <body>
 
-  <div class="col-md-6 offset-md-3">
+  <div class="loading" *ngIf="!load">
+    <div class="spinner-border" role="status">
+    </div>
+    <br>
+    <span>{{Loading}}</span>
+  </div>
+
+  <div class="col-md-6 offset-md-3" *ngIf="load">
     <h3 class="text-center"><i class="bi bi-pencil"></i> Editar Usuario</h3>
 
     <form id="contactForm" [formGroup]="editFormGroup" (ngSubmit)="onSubmit()">

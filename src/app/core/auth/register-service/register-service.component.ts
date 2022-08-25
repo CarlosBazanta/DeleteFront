@@ -52,6 +52,7 @@ export class RegisterServiceComponent implements OnInit {
       console.log(dato);
       this.redictToList();
       console.log(this.warning);
+
     },error => this.warning=true);
 
 
@@ -72,7 +73,6 @@ export class RegisterServiceComponent implements OnInit {
   }
 
   loadingCard(){
-
     if(this.loading=="Registrar"){
       this.loading ='Cargando...' ;
     }else if(this.loading ='Cargando...' || this.warning==true){
