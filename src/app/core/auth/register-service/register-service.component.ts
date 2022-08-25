@@ -15,6 +15,7 @@ export class RegisterServiceComponent implements OnInit {
   registerUserFormGroup: FormGroup;
   user: User = new User();
   loading: string = 'Registrar';
+  warning: Boolean = false;
 
   constructor(private formBuilder: FormBuilder,private router:Router,
     private userService : UserServiceService ) { }
@@ -25,7 +26,8 @@ export class RegisterServiceComponent implements OnInit {
       name: new FormControl('', [
         Validators.required,
         Validators.minLength(6),
-        Validators.maxLength(20)]),
+        Validators.maxLength(20),
+        Validators.pattern(Constanst.Pattern.Form.name)]),
       lastName: new FormControl('', [
         Validators.required,
         Validators.minLength(6),
@@ -49,14 +51,13 @@ export class RegisterServiceComponent implements OnInit {
     this.userService.userRegister(this.user).subscribe(dato => {
       console.log(dato);
       this.redictToList();
-    }, error => console.log(error));
+      console.log(this.warning);
+    },error => this.warning=true);
 
 
   }
 
   onSubmit():void{
-
-    this.submitted =true;
 
     if(this.registerUserFormGroup.invalid){
       return console.log("error");
@@ -72,8 +73,11 @@ export class RegisterServiceComponent implements OnInit {
 
   loadingCard(){
 
-    this.loading ='Cargando...' ;
-
+    if(this.loading=="Registrar"){
+      this.loading ='Cargando...' ;
+    }else if(this.loading ='Cargando...' || this.warning==true){
+      this.loading ='Registrar' ;
+    }
   }
 
 
