@@ -18,6 +18,8 @@ export class UserListComponent implements OnInit {
   constructor(private userService:UserServiceService,private router:Router) { }
 
   ngOnInit(): void {
+    this.changeLoad()
+    setTimeout(()=>{this.load=true;},5000)
     this.getUser();
   }
 
@@ -36,6 +38,18 @@ export class UserListComponent implements OnInit {
     this.userService.getList().subscribe(dato =>{
       this.user = dato;
     })
+  }
+
+  public load: boolean = false;
+  public loading: string = 'Cargando.';
+
+
+  changeLoad(){
+
+      setInterval(()=>{this.loading += '.';
+      if(this.loading==='Cargando....')
+      {this.loading='Cargando.';}},600)
+
   }
 
 
