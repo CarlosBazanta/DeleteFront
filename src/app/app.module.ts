@@ -8,6 +8,7 @@ import {HttpClientModule} from '@angular/common/http';
 import { RegisterServiceComponent } from './core/auth/register-service/register-service.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { EditUserComponent } from './core/auth/edit-user/edit-user.component';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 
 @NgModule({
@@ -22,7 +23,8 @@ import { EditUserComponent } from './core/auth/edit-user/edit-user.component';
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NgxPaginationModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -8,7 +8,14 @@
 </head>
 <body>
 
-  <div class="col-md-6 offset-md-3">
+  <div class="loading" *ngIf="!load">
+    <div class="spinner-border" role="status">
+    </div>
+    <br>
+    <span>{{Loading}}</span>
+  </div>
+
+  <div class="col-md-6 offset-md-3" *ngIf="load">
     <h3 class="text-center"><i class="bi bi-pencil"></i> Editar Usuario</h3>
 
     <form id="contactForm" [formGroup]="editFormGroup" (ngSubmit)="onSubmit()">
@@ -86,8 +93,29 @@
       </div>
 
       <div class="d-grid gap-2 col-6 mx-auto">
-        <button type="submit" class="btn btn-outline-dark" [disabled]="editFormGroup.invalid">
-          <i class="bi bi-person-check"></i> Actualizar</button>
+        <button type="button" class="btn btn-outline-dark" [disabled]="editFormGroup.invalid || loading=='Cargando...'" (click)="loadingCard()"
+        data-bs-toggle="modal" data-bs-target="#eModal">
+          <i class="bi bi-person-check"></i> {{loading}}</button>
+
+          <!-- Modal -->
+      <div class="modal fade" id="eModal" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false">
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">¿Estas seguro que desea realizar estos cambios?</h5>
+              <button type="button" (click)="loadingCard()" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+              <div class="modal-body">
+                Si confirma esta accion, los datos que se encuentrarn registrados seran cambiados, perdiendo de esta manera,
+                ¿Seguro que desea continuar?
+              </div>
+              <div class="modal-footer">
+                <button type="submit" class="btn btn-outline-dark" data-bs-dismiss="modal">Si </button>
+                <button type="button" class="btn btn-outline-secondary" (click)="loadingCard()" data-bs-dismiss="modal">No</button>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
 
     </form>

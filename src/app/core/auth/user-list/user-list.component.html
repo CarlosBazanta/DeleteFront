@@ -1,10 +1,18 @@
-<h2 class="tittle"><i class="bi bi-list-ol"></i> Lista de Usuarios</h2>
 
-<div class="d-grid gap-2 col-6 mx-auto">
+<div class="loading" *ngIf="!load">
+  <div class="spinner-border" role="status">
+  </div>
+  <br>
+  <span>{{loading}}</span>
+</div>
+
+<h2 class="tittle" *ngIf="load"><i class="bi bi-list-ol"></i> Lista de Usuarios</h2>
+
+<div class="d-grid gap-2 col-6 mx-auto" *ngIf="load">
   <a type="button" class="btn btn-outline-dark"
     href="/register"><i class="bi bi-person-plus-fill"></i> Registra un Nuevo Usuario</a>
 </div>
-<table class="table table-striped">
+<table class="table table-striped" *ngIf="load">
   <thead class="table-dark">
     <tr>
       <th>ID</th>
@@ -15,7 +23,7 @@
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let user of user">
+    <tr *ngFor="let user of user | paginate: {itemsPerPage: 4, currentPage: page}">
       <td>{{user.id}}</td>
       <td>{{user.name}}</td>
       <td>{{user.lastName}}</td>
@@ -23,11 +31,41 @@
 
       <td>
           <button class="btn btn-outline-secondary" (click)="editUser(user.id)"><i class="bi bi-pencil"></i> Editar</button>
-          <button class="btn btn-outline-dark" (click)="deleteUser(user.id)"><i class="bi bi-person-x-fill"></i> Eliminar</button>
+          <button class="btn btn-outline-dark" data-bs-toggle="modal" data-bs-target="#eModal"><i class="bi bi-person-x-fill"></i> Eliminar</button>
+
+          <!-- Modal -->
+<div class="modal fade" id="eModal" tabindex="-1">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">¿Estas seguro de eliminar este Usuario?</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        Esta accion es irreversible, al eliminar este usuario este dejara de estar disponible, y no sera visible en la tabla de usuarios.
+        ¿Desea continuar con la operacion?.
+      </div>
+      <div class="modal-footer">
+        <button type="button" data-bs-dismiss="modal" (click)="deleteUser(user.id)" class="btn btn-outline-dark">Si</button>
+        <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">No</button>
+      </div>
+    </div>
+  </div>
+</div>
+
       </td>
 
     </tr>
   </tbody>
+
 </table>
+
+<div class="pagination justify-content-center" *ngIf="load">
+<pagination-controls  (pageChange)="page = $event"></pagination-controls>
+</div>
+
+
+
+
 
 
