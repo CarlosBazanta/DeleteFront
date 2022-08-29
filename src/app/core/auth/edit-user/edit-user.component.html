@@ -4,7 +4,8 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Register</title>
+  <title>Edit User</title>
+  <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/3033/3033143.png" sizes="32x32" type = "image/x-icon">
 </head>
 <body>
 
@@ -40,6 +41,9 @@
               <div class="alert alert-danger" role="alert" *ngIf="name?.hasError('maxlength')">
                 <i class="bi bi-exclamation-circle-fill"></i> ERROR: Esta casilla tiene demasiados caracteres
               </div>
+              <div class="alert alert-danger" role="alert" *ngIf="name?.hasError('pattern')">
+                <i class="bi bi-exclamation-circle-fill"></i> ERROR: Esta casilla tiene caracteres invalidos
+              </div>
             </div>
       </div>
 
@@ -62,6 +66,9 @@
               </div>
               <div class="alert alert-danger" role="alert" *ngIf="lastName?.hasError('maxlength')">
                 <i class="bi bi-exclamation-circle-fill"></i> ERROR: Esta casilla tiene demasiados caracteres
+              </div>
+              <div class="alert alert-danger" role="alert" *ngIf="lastName?.hasError('pattern')">
+                <i class="bi bi-exclamation-circle-fill"></i> ERROR: Esta casilla tiene caracteres invalidos
               </div>
             </div>
       </div>

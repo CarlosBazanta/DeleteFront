@@ -24,3 +24,7 @@
   text-align: center;
 }
 
+.custom-pagination ::ng-deep .ngx-pagination .current {
+  background: rgba(0, 0, 0, 0.778);
+}
+

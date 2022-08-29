@@ -5,6 +5,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Register</title>
+  <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/4202/4202259.png" sizes="32x32" type = "image/x-icon">
 </head>
 <body>
 
@@ -66,6 +67,9 @@
               <div class="alert alert-danger" role="alert" *ngIf="lastName?.hasError('maxlength')">
                 <i class="bi bi-exclamation-circle-fill"></i> ERROR: Esta casilla tiene demasiados caracteres
               </div>
+              <div class="alert alert-danger" role="alert" *ngIf="lastName?.hasError('pattern')">
+                <i class="bi bi-exclamation-circle-fill"></i> ERROR: Esta casilla tiene caracteres invalidos
+              </div>
             </div>
       </div>
 
@@ -111,7 +115,7 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        Esta usted en registrar un usuario, en base a nuestros acuerdos de privacidad y politicas.
+        Esta usted a punto de registrar un usuario. En base a nuestros acuerdos de privacidad y politicas es nuestra obligacion informarle;
         Si hace esto usted esta accediendo a que la empresa pueda registrar estos datos, para almacenarlos en nuetros servidores.
         ¿Esta usted de acuerdo?
       </div>
