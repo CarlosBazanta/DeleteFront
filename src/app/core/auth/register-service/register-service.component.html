@@ -5,6 +5,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Register</title>
+  <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/4202/4202259.png" sizes="32x32" type = "image/x-icon">
 </head>
 <body>
 
@@ -66,6 +67,9 @@
               <div class="alert alert-danger" role="alert" *ngIf="lastName?.hasError('maxlength')">
                 <i class="bi bi-exclamation-circle-fill"></i> ERROR: Esta casilla tiene demasiados caracteres
               </div>
+              <div class="alert alert-danger" role="alert" *ngIf="lastName?.hasError('pattern')">
+                <i class="bi bi-exclamation-circle-fill"></i> ERROR: Esta casilla tiene caracteres invalidos
+              </div>
             </div>
       </div>
 
@@ -103,27 +107,25 @@
       </div>
 
       <!-- Modal -->
-<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1">
-  <div class="modal-dialog modal-dialog-centered">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="staticBackdropLabel">Terminos de privacidad & Politicas de la empresa</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="staticBackdropLabel">Terminos de privacidad & Politicas de la empresa</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              Esta usted a punto de registrar un usuario. En base a nuestros acuerdos de privacidad y politicas es nuestra obligacion informarle;
+              Si hace esto usted esta accediendo a que la empresa pueda registrar estos datos, para almacenarlos en nuetros servidores.
+              ¿Esta usted de acuerdo?
+            </div>
+            <div class="modal-footer">
+              <button type="submit" class="btn btn-outline-dark modabtn" data-bs-dismiss="modal">Si</button>
+              <button type="button" class="btn btn-outline-secondary modabtn" data-bs-dismiss="modal">No</button>
+            </div>
+          </div>
+        </div>
       </div>
-      <div class="modal-body">
-        Esta usted en registrar un usuario, en base a nuestros acuerdos de privacidad y politicas.
-        Si hace esto usted esta accediendo a que la empresa pueda registrar estos datos, para almacenarlos en nuetros servidores.
-        ¿Esta usted de acuerdo?
-      </div>
-      <div class="modal-footer">
-        <button type="submit" class="btn btn-outline-dark" data-bs-dismiss="modal">Si</button>
-        <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">No</button>
-      </div>
-    </div>
-  </div>
-</div>
-
-
     </form>
   </div>
 

@@ -41,11 +41,13 @@ export class EditUserComponent implements OnInit {
       name: new FormControl('', [
         Validators.required,
         Validators.minLength(6),
-        Validators.maxLength(20)]),
+        Validators.maxLength(20),
+        Validators.pattern(Constanst.Pattern.Form.name)]),
       lastName: new FormControl('', [
         Validators.required,
         Validators.minLength(6),
-        Validators.maxLength(25)]),
+        Validators.maxLength(25),
+        Validators.pattern(Constanst.Pattern.Form.name)]),
       email: new FormControl('', [
         Validators.required,
         Validators.minLength(6),

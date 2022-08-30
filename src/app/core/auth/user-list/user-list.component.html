@@ -1,3 +1,10 @@
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home</title>
+  <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/25/25694.png" sizes="32x32" type = "image/x-icon">
+</head>
 
 <div class="loading" *ngIf="!load">
   <div class="spinner-border" role="status">
@@ -30,28 +37,31 @@
       <td>{{user.email}}</td>
 
       <td>
-          <button class="btn btn-outline-secondary" (click)="editUser(user.id)"><i class="bi bi-pencil"></i> Editar</button>
-          <button class="btn btn-outline-dark" data-bs-toggle="modal" data-bs-target="#eModal"><i class="bi bi-person-x-fill"></i> Eliminar</button>
-
+        <div class="d-grid gap-2 d-md-block">
+          <button class="btn btn-outline-secondary tablebtn" (click)="editUser(user.id)"><i class="bi bi-pencil"></i> Editar</button>
+          <button class="btn btn-outline-dark tablebtn2" data-bs-toggle="modal" data-bs-target="#eModal"><i class="bi bi-person-x-fill"></i> Eliminar</button>
+        </div>
           <!-- Modal -->
-<div class="modal fade" id="eModal" tabindex="-1">
-  <div class="modal-dialog modal-dialog-centered">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">¿Estas seguro de eliminar este Usuario?</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        Esta accion es irreversible, al eliminar este usuario este dejara de estar disponible, y no sera visible en la tabla de usuarios.
-        ¿Desea continuar con la operacion?.
-      </div>
-      <div class="modal-footer">
-        <button type="button" data-bs-dismiss="modal" (click)="deleteUser(user.id)" class="btn btn-outline-dark">Si</button>
-        <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">No</button>
-      </div>
-    </div>
-  </div>
-</div>
+        <div class="modal fade" id="eModal" tabindex="-1">
+          <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">¿Estas seguro de eliminar este Usuario?</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                Esta accion es irreversible, al eliminar este usuario este dejara de estar disponible, y no sera visible en la tabla de usuarios.
+                ¿Desea continuar con la operacion?.
+              </div>
+              <div class="d-grid gap-2 d-md-block">
+                <div class="modal-footer">
+                   <button type="button" data-bs-dismiss="modal" (click)="deleteUser(user.id)" class="btn btn-outline-dark modabtn">Si</button>
+                   <button type="button" class="btn btn-outline-secondary modabtn" data-bs-dismiss="modal">No</button>
+                 </div>
+              </div>
+            </div>
+          </div>
+        </div>
 
       </td>
 
@@ -61,7 +71,7 @@
 </table>
 
 <div class="pagination justify-content-center" *ngIf="load">
-<pagination-controls  (pageChange)="page = $event"></pagination-controls>
+<pagination-controls class="custom-pagination" (pageChange)="page = $event"></pagination-controls>
 </div>
 
 

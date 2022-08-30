@@ -31,7 +31,8 @@ export class RegisterServiceComponent implements OnInit {
       lastName: new FormControl('', [
         Validators.required,
         Validators.minLength(6),
-        Validators.maxLength(25)]),
+        Validators.maxLength(25),
+        Validators.pattern(Constanst.Pattern.Form.name)]),
       email: new FormControl('', [
         Validators.required,
         Validators.minLength(6),
