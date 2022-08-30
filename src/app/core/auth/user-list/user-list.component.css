@@ -6,12 +6,12 @@
   margin-top: 1% ;
   margin-bottom: 1%;
 }
-.btn-outline-secondary{
+.tablebtn{
   margin-right: 2%;
   margin-bottom: 2%;
 }
 
-.btn-outline-dark{
+.tablebtn2{
   margin-bottom: 2%;
 }
 
@@ -28,3 +28,6 @@
   background: rgba(0, 0, 0, 0.778);
 }
 
+.modabtn{
+  width: 100%;
+}
