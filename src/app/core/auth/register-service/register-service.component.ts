@@ -25,12 +25,12 @@ export class RegisterServiceComponent implements OnInit {
     this.registerUserFormGroup= this.formBuilder.group({
       name: new FormControl('', [
         Validators.required,
-        Validators.minLength(6),
+        Validators.minLength(4),
         Validators.maxLength(20),
         Validators.pattern(Constanst.Pattern.Form.name)]),
       lastName: new FormControl('', [
         Validators.required,
-        Validators.minLength(6),
+        Validators.minLength(4),
         Validators.maxLength(25),
         Validators.pattern(Constanst.Pattern.Form.name)]),
       email: new FormControl('', [
