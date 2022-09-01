@@ -13,7 +13,7 @@ export class UserListComponent implements OnInit {
   pageSize= 5;
   user:User[];
   page: number = 1;
-
+  pageName: String = 'Home';
 
   constructor(private userService:UserServiceService,private router:Router) { }
 
